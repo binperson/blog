@@ -1,0 +1,778 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="hexo,pm2," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://www.binperson.com.cn/favicon.ico?v=" />
+
+
+
+
+
+
+<meta name="description" content="安装Hexonpm install hexo-cli -g
+初始化bloghexo init blog
+
+cd blog
+
+npm install">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo+pm2搭建属于自己的博客">
+<meta property="og:url" content="http://yoursite.com/2017/01/14/00000001/index.html">
+<meta property="og:site_name" content="非死非生又一秋">
+<meta property="og:description" content="安装Hexonpm install hexo-cli -g
+初始化bloghexo init blog
+
+cd blog
+
+npm install">
+<meta property="og:updated_time" content="2017-01-14T14:43:19.980Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo+pm2搭建属于自己的博客">
+<meta name="twitter:description" content="安装Hexonpm install hexo-cli -g
+初始化bloghexo init blog
+
+cd blog
+
+npm install">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/14/00000001/"/>
+
+
+
+
+
+  <title> hexo+pm2搭建属于自己的博客 | 非死非生又一秋 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">非死非生又一秋</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/14/00000001/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="binperson">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="非死非生又一秋">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="非死非生又一秋" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                hexo+pm2搭建属于自己的博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-14T13:33:48+08:00">
+                2017-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><pre><code>npm install hexo-cli -g
+</code></pre><h3 id="初始化blog"><a href="#初始化blog" class="headerlink" title="初始化blog"></a>初始化blog</h3><pre><code>hexo init blog
+
+cd blog
+
+npm install
+</code></pre><a id="more"></a>
+<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><pre><code>npm install --save hexo-renderer-jade hexo-renderer-scss
+
+cd themes
+
+git clone https://github.com/yzzting/hexo-theme-MyFairLady.git MyFairLady
+</code></pre><p>这里可以有其他自己喜欢的主题，可以去<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
+<h3 id="然后更新自己的博客的主要-config-yml设定主题MyFairLady"><a href="#然后更新自己的博客的主要-config-yml设定主题MyFairLady" class="headerlink" title="然后更新自己的博客的主要_config.yml设定主题MyFairLady"></a>然后更新自己的博客的主要_config.yml设定主题MyFairLady</h3><pre><code># Extensions
+
+## Plugins: http://hexo.io/plugins/
+
+## Themes: http://hexo.io/themes/
+
+theme: MyFairLady
+</code></pre><h3 id="主要的配置"><a href="#主要的配置" class="headerlink" title="主要的配置"></a>主要的配置</h3><h4 id="菜单"><a href="#菜单" class="headerlink" title="菜单"></a>菜单</h4><pre><code>menu:
+
+home: /
+
+about : /about
+
+archives: /archives
+</code></pre><p>这个是header里面三个选项，如果要添加的话，在目录下的 source 下创建 一个你想要添加的选项名称的文件夹，然后在里面new一个例如xx.md在 里面填入</p>
+<pre><code>---
+
+layout: xxx
+
+title: &quot;xx&quot;
+
+noDate: &quot;true&quot;
+
+---
+</code></pre><h4 id="显示的文章数"><a href="#显示的文章数" class="headerlink" title="显示的文章数"></a>显示的文章数</h4><p>每一页显示的文章数，还是在主目录下的_config.yml，找到per_page,选择你喜欢的数字。归档页也会跟着改变。</p>
+<pre><code># Pagination
+
+## Set per_page to 0 to disable pagination
+
+per_page: 5
+</code></pre><p>在里面添加了百度统计和google统计，默认才用的是google。分别在主题的配着文件下填入你的ID，就是启用了。</p>
+<pre><code># Baidu Analytics
+
+# baidu_analytics: c21994907883f37ffd80e13627dd4faa
+
+# Google Analytics
+
+google_analytics: UA-75314797-1
+</code></pre><h4 id="社交"><a href="#社交" class="headerlink" title="社交"></a>社交</h4><p>在主题的_config.yml里面的subnav选项中，有三个选项，github，知乎，一切从简，并没有用icon。</p>
+<pre><code># SubNav
+
+subnav:
+
+gitHub: &quot;https://github.com/binperon&quot;
+
+zhiHu: &quot;https://www.zhihu.com/people/binperson&quot;
+</code></pre><p>其他的配置呢在配置文件里面写的也蛮清楚了，一看就懂的啦</p>
+<h4 id="评论框"><a href="#评论框" class="headerlink" title="评论框"></a>评论框</h4><p>因为多说的评论框，样式很low，只是采用了disqus。虽然是国外的，但是不影响使用。注册和配置相当容易。注册填入你的网站信息之后，在主题的配置文件.config.yml 中填入</p>
+<pre><code># comments
+
+disqus: binperson
+</code></pre><h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><pre><code>hexo server -p 5000
+</code></pre><h3 id="Hexo进程守护"><a href="#Hexo进程守护" class="headerlink" title="Hexo进程守护"></a>Hexo进程守护</h3><p>Node进程守护有很多工具，Forever，PM2，PM2.5 blah blah.我用PM2</p>
+<p>Hexo下新建一个app.js,写入下面代码：</p>
+<pre><code>var spawn = require(&apos;child_process&apos;).spawn;
+
+free = spawn(&apos;hexo&apos;, [&apos;server&apos;, &apos;-p 4000&apos;]);/* 其实就是等于执行hexo server -p 4000*/
+
+free.stdout.on(&apos;data&apos;, function (data) {
+
+    console.log(&apos;standard output:\n&apos; + data);
+
+});
+
+free.stderr.on(&apos;data&apos;, function (data) {
+
+    console.log(&apos;standard error output:\n&apos; + data);
+
+});
+
+free.on(&apos;exit&apos;, function (code, signal) {
+
+    console.log(&apos;child process eixt ,exit:&apos; + code);
+
+});
+</code></pre><h4 id="执行pm2命令："><a href="#执行pm2命令：" class="headerlink" title="执行pm2命令："></a>执行pm2命令：</h4><pre><code>pm2 start app.js
+</code></pre><h4 id="停止服务"><a href="#停止服务" class="headerlink" title="停止服务"></a>停止服务</h4><pre><code>pm2 stop id
+</code></pre><h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>上传服务器后执行npm install 因为有些因为路径问题上传失败导致文件缺损。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/pay.png" alt="binperson Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/pm2/" rel="tag"># pm2</a>
+          
+        </div>
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="binperson" />
+          <p class="site-author-name" itemprop="name">binperson</p>
+          <p class="site-description motion-element" itemprop="description">浮生若此，会少散多，不如莫遇</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/binperson" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-envira"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1847158524" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/binperson" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/binperson" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">1.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化blog"><span class="nav-number">2.</span> <span class="nav-text">初始化blog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更换主题"><span class="nav-number">3.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#然后更新自己的博客的主要-config-yml设定主题MyFairLady"><span class="nav-number">4.</span> <span class="nav-text">然后更新自己的博客的主要_config.yml设定主题MyFairLady</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要的配置"><span class="nav-number">5.</span> <span class="nav-text">主要的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#菜单"><span class="nav-number">5.1.</span> <span class="nav-text">菜单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示的文章数"><span class="nav-number">5.2.</span> <span class="nav-text">显示的文章数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#社交"><span class="nav-number">5.3.</span> <span class="nav-text">社交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#评论框"><span class="nav-number">5.4.</span> <span class="nav-text">评论框</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动服务"><span class="nav-number">6.</span> <span class="nav-text">启动服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo进程守护"><span class="nav-number">7.</span> <span class="nav-text">Hexo进程守护</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#执行pm2命令："><span class="nav-number">7.1.</span> <span class="nav-text">执行pm2命令：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#停止服务"><span class="nav-number">7.2.</span> <span class="nav-text">停止服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">7.3.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">binperson</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v="></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
