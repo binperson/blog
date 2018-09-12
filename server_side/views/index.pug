@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title= title
+  body
+    h1= title
+    p#c
+    p Welcome to #{title}
+    p#a
+    p#b
+    p#e
+    p#f
+    p#g
+    p#text
+    p#num
+    script.
+      let num = 0
+      document.querySelector('#c').innerText = window.DeviceMotionEvent
+      if (window.DeviceMotionEvent) {
+        window.addEventListener('devicemotion', function(event){
+          num++
+          document.querySelector('#a').innerText = event.accelerationIncludingGravity
+          document.querySelector('#b').innerText = event.accelerationIncludingGravity
+
+          document.querySelector('#e').innerText = event.accelerationIncludingGravity.x
+          document.querySelector('#f').innerText = event.accelerationIncludingGravity.y
+          document.querySelector('#g').innerText = event.accelerationIncludingGravity.y
+          let text = ''
+          for (let a in event.accelerationIncludingGravity) {
+            text += a
+          }
+          document.querySelector('#text').innerText = text
+          document.querySelector('#num').innerText = num
+        }, false)
+      } else {
+        window.alert('本设备不支持devicemotion事件')
+      }
