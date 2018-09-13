@@ -1,0 +1,17 @@
+{
+  "name": "koa2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "binperson",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.5.3",
+    "log4js": "^3.0.5",
+    "mongoose": "^5.2.14",
+    "redis": "^2.8.0"
+  }
+}
