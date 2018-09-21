@@ -1,5 +1,11 @@
 const log = require('./utils/log')
 const Koa = require('koa')
+let router = require('koa-router')()
+
+const koa2RestMongoose = require('./mongo_rest/index')
+let models = require('./model/mongo')
+
+
 const app = new Koa()
 
 app.use(async (ctx, next) => {
@@ -12,6 +18,12 @@ app.use(async (ctx, next) => {
 // response
 app.use(ctx => {
   ctx.body = 'Hello Koa'
+})
+
+Object.keys(models).forEach(value=>{
+  if(value != 'db'){
+    koa2RestMongoose(app, router, models[value],'/api');
+  }
 })
 
 app.listen(3000)
