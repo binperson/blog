@@ -1,9 +1,12 @@
 <template>
     <div id='main'>
       <div id='main'>
-      <article class="post page">
-        {{ html }}
-      </article>
+        <article class="post page">
+          <h1 class=title>{{html.title}}</h1>
+          <div class="entry-content">
+              {{ html.content }}
+          </div>
+          </article>
       <my-footer></my-footer>
     </div>
     </div>
