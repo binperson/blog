@@ -5,19 +5,24 @@
                 <a href="/"> <img v-bind:src="logoPath" alt="Smallpath的小站"> </a> <span>Smallpath的小站</span></div>
             <ul class=buttons>
                 <li>
-                    <a href="/" title="首页"> <i class="iconfont icon-home"></i> <span>首页</span></a></li>
-                    <li>
-                        <a href="/archives/" title="归档"> <i class="iconfont icon-archive"></i> <span>归档</span></a></li>
-                        <li>
-                            <a href="/tags/" title="标签"> <i class="iconfont icon-tags"></i> <span>标签</span></a></li>
-                            <li>
-                                <router-link to="/about" title="关于"> <i class="iconfont icon-user"></i> <span>关于</span></router-link></li>
-                                <li>
-                                    <a href="/links/" title="友情链接"> <i class="iconfont icon-link"></i> <span>友链</span></a></li>
+                    <a href="/" title="首页"> <i class="iconfont icon-home"></i> <span>首页</span></a>
+                </li>
+                <li>
+                    <a href="/archives/" title="归档"> <i class="iconfont icon-archive"></i> <span>归档</span></a>
+                </li>
+                <li>
+                    <a href="/tags/" title="标签"> <i class="iconfont icon-tags"></i> <span>标签</span></a>
+                </li>
+                <li>
+                    <router-link to="/about" title="关于"> <i class="iconfont icon-user"></i> <span>关于</span></router-link>
+                </li>
+                <li>
+                    <a href="/links/" title="友情链接"> <i class="iconfont icon-link"></i> <span>友链</span></a>
+                </li>
             </ul>
             <ul class=buttons>
                 <li>
-                    <a class=inline target=_blank href="https://github.com/binperson"> <i class="iconfont icon-github-v" title=GitHub></i></a>
+                    <a class=inline target=_blank href="https://github.com/Smallpath"> <i class="iconfont icon-github-v" title=GitHub></i></a>
                     <a class=inline href="/rss.html"> <i class="iconfont icon-rss-v" title=RSS></i></a>
                     <a class=inline href="/search.html"> <i class="iconfont icon-search" title=Search></i></a>
                 </li>
