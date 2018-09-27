@@ -2,6 +2,7 @@
     <div id='main'>
         <section id="page-index">
             <blog-summary v-for="item in items" :key="item" :article="item" ></blog-summary>
+            <pagination :next=2 :prev=1></pagination>
         </section>
         <my-footer></my-footer>
     </div>
@@ -11,6 +12,7 @@
 /* eslint-disable */
 import model from '@/model'
 import BlogSummary from '@/components/BlogSummary'
+import Pagination from '@/components/Pagination'
 
 export default {
   data () {
@@ -19,7 +21,8 @@ export default {
     }
   },
   components: {
-    BlogSummary
+    BlogSummary,
+    Pagination
   }
 }
 </script>
