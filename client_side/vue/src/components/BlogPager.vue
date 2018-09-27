@@ -1,12 +1,7 @@
 <template>
     <div id='main'>
         <section id="page-index">
-            <li v-for="item in items" :key="item">
-                {{item.title}}
-            </li>
-            <!--<template v-for="item in items">
-                <blog-summary :article={item} ></blog-summary>
-            <template>-->
+            <blog-summary v-for="item in items" :key="item" :article="item" ></blog-summary>
         </section>
         <my-footer></my-footer>
     </div>
@@ -15,12 +10,16 @@
 <script>
 /* eslint-disable */
 import model from '@/model'
+import BlogSummary from '@/components/BlogSummary'
 
 export default {
   data () {
-      return {
-        items: model.fetchBlogByPage(0).then(items=>this.items=items)
-      }
+    return {
+      items: model.fetchBlogByPage(0).then(items=>this.items=items)
     }
+  },
+  components: {
+    BlogSummary
+  }
 }
 </script>
