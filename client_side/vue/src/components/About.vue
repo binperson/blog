@@ -13,7 +13,6 @@
 </template>
 
 <script>
-
 import model from '@/model'
 import MyFooter from '@/components/Footer'
 
