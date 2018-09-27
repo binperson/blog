@@ -12,14 +12,27 @@
 /* eslint-disable */
 export default {
     props: {
-        prev: Number,
-        next: Number,
+        hasPrev: Boolean,
+        hasNext: Boolean,
+        page: Number,
     },
 
     data () {
         return {
 
         }
+    },
+    methods: {
+        jump(num){
+            this.page = num;
+        },
+        prev(){
+            this.page--;
+        },
+        next(){
+            console.log(this.page);
+            this.page++;
+        },
     }
 }
 </script>
